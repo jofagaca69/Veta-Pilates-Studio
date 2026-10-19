@@ -4,11 +4,11 @@ import logoCream from '../assets/img/logo-h-cream.png';
 import logoWine from '../assets/img/logo-h-wine.png';
 
 const links = [
-	{ href: '#method', label: 'Method' },
-	{ href: '#classes', label: 'Classes' },
-	{ href: '#studio', label: 'Studio' },
-	{ href: '#pricing', label: 'Pricing' },
-	{ href: '#contact', label: 'Contact' },
+	{ href: '#method', label: 'Método' },
+	{ href: '#classes', label: 'Clases' },
+	{ href: '#studio', label: 'Estudio' },
+	{ href: '#pricing', label: 'Precios' },
+	{ href: '#contact', label: 'Contacto' },
 ];
 ---
 
@@ -18,7 +18,7 @@ const links = [
 	class="group fixed inset-x-0 top-0 z-50 transition-transform duration-700 ease-(--ease-soft) data-[hidden=true]:-translate-y-full"
 >
 	<nav class="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-5 sm:px-10 sm:py-6">
-		<a href="#top" class="relative block w-24 sm:w-28" aria-label="Veta Pilates Studio — home">
+		<a href="#top" class="relative block w-24 sm:w-28" aria-label="Estudio Veta Pilates — Inicio">
 			<Image src={logoCream} alt="" width={280} loading="eager" class="w-full transition-opacity duration-500 group-data-[theme=cream]:opacity-0" />
 			<Image src={logoWine} alt="" width={280} loading="eager" class="absolute inset-0 w-full opacity-0 transition-opacity duration-500 group-data-[theme=cream]:opacity-100" />
 		</a>
@@ -39,11 +39,11 @@ const links = [
 				data-magnetic
 				class="btn hidden px-6 py-3.5 sm:inline-flex btn-cream group-data-[theme=cream]:bg-wine group-data-[theme=cream]:text-cream"
 			>
-				<span>Book a class</span>
+				<span>Reserva una clase</span>
 			</a>
 			<button
 				data-menu-toggle
-				aria-label="Open menu"
+				aria-label="Abrir menú"
 				aria-expanded="false"
 				class="relative flex h-12 w-12 items-center justify-center rounded-full border border-cream/40 text-cream transition-colors duration-500 group-data-[theme=cream]:border-wine/30 group-data-[theme=cream]:text-wine lg:hidden"
 			>
@@ -59,7 +59,7 @@ const links = [
 	class="invisible fixed inset-0 z-[60] flex flex-col justify-between bg-wine px-5 pt-24 pb-10 text-cream sm:px-10 lg:hidden"
 	style="clip-path: inset(0 0 100% 0)"
 >
-	<button data-menu-close aria-label="Close menu" class="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full border border-cream/40 sm:right-10">
+	<button data-menu-close aria-label="Cerrar menú" class="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full border border-cream/40 sm:right-10">
 		<span class="absolute h-px w-5 rotate-45 bg-current"></span>
 		<span class="absolute h-px w-5 -rotate-45 bg-current"></span>
 	</button>
@@ -80,6 +80,6 @@ const links = [
 			<p>hello@vetapilates.com</p>
 			<p>+1 (555) 014-2290</p>
 		</div>
-		<a href="#pricing" class="btn btn-cream"><span>Book</span></a>
+		<a href="#pricing" class="btn btn-cream"><span>Reservar</span></a>
 	</div>
 </div>

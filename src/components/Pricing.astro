@@ -4,30 +4,30 @@ import sunCream from '../assets/img/sun-cream.png';
 
 const plans = [
 	{
-		name: 'Intro Offer',
+		name: 'Oferta de bienvenida',
 		price: '59',
-		unit: '3 classes',
-		note: 'New clients only · valid 30 days',
-		features: ['Any group class', 'Studio tour & setup', 'Free grip socks', 'Book 14 days ahead'],
-		cta: 'Start here',
+		unit: '3 clases',
+		note: 'Solo para nuevos clientes · válido durante 30 días',
+		features: ['Cualquier clase en grupo', 'Visita al estudio y montaje', 'Calcetines antideslizantes gratis', 'Reserva con 14 días de antelación'],
+		cta: 'Empieza por aquí',
 		featured: false,
 	},
 	{
-		name: 'Unlimited',
+		name: 'Ilimitado',
 		price: '289',
-		unit: 'per month',
-		note: 'Auto-renews · pause anytime',
-		features: ['Unlimited group classes', 'Priority booking, 21 days', '2 guest passes a month', '10% off privates & retail'],
-		cta: 'Become a member',
+		unit: 'al mes',
+		note: 'Renovación automática · Se puede pausar en cualquier momento',
+		features: ['Clases en grupo ilimitadas', 'Reserva prioritaria, 21 días', '2 pases para invitados al mes', '10 % de descuento en clases particulares y productos al por menor'],
+		cta: 'Hazte socio',
 		featured: true,
 	},
 	{
-		name: '8 Class Pack',
+		name: 'Bono de 8 clases',
 		price: '240',
-		unit: '8 classes',
-		note: 'Valid 3 months',
-		features: ['Any group class', 'Share with a friend', 'Book 14 days ahead', 'Towels & lockers included'],
-		cta: 'Buy pack',
+		unit: '8 clases',
+		note: 'Válido durante 3 meses',
+		features: ['Cualquier clase en grupo', 'Compártelo con un amigo', 'Reserva con 14 días de antelación', 'Toallas y taquillas incluidas'],
+		cta: 'Comprar paquete',
 		featured: false,
 	},
 ];
@@ -36,9 +36,9 @@ const plans = [
 <section id="pricing" data-nav-theme="cream" class="relative bg-cream-light py-28 sm:py-40">
 	<div class="mx-auto max-w-[1600px] px-5 sm:px-10">
 		<div class="mb-16 text-center lg:mb-24">
-			<p data-reveal class="eyebrow mb-6 inline-flex items-center gap-4"><span class="h-px w-10 bg-current"></span> Pricing <span class="h-px w-10 bg-current"></span></p>
+			<p data-reveal class="eyebrow mb-6 inline-flex items-center gap-4"><span class="h-px w-10 bg-current"></span> Precios <span class="h-px w-10 bg-current"></span></p>
 			<h2 data-split class="display mx-auto max-w-4xl text-[clamp(3rem,7vw,6.5rem)] font-light">
-				Begin <em class="italic">gently.</em>
+				Empieza <em class="italic">suavemente.</em>
 			</h2>
 		</div>
 
@@ -55,7 +55,7 @@ const plans = [
 						{p.featured && (
 							<>
 								<Image src={sunCream} alt="" width={300} class="pointer-events-none absolute -top-16 -right-16 w-52 opacity-10" data-spin />
-								<span class="eyebrow absolute top-8 right-8 rounded-full bg-cream px-4 py-2 text-[0.6rem] text-wine sm:top-10 sm:right-10">Most loved</span>
+								<span class="eyebrow absolute top-8 right-8 rounded-full bg-cream px-4 py-2 text-[0.6rem] text-wine sm:top-10 sm:right-10">Los más populares</span>
 							</>
 						)}
 						<p class="eyebrow mb-10">{p.name}</p>
@@ -80,6 +80,6 @@ const plans = [
 				))
 			}
 		</div>
-		<p data-reveal class="mt-14 text-center text-sm text-wine/60">Private sessions from $110 · Corporate &amp; gift cards available</p>
+		<p data-reveal class="mt-14 text-center text-sm text-wine/60">Sesiones privadas a partir de 110 $ · Disponibles tarjetas corporativas y de regalo</p>
 	</div>
 </section>
