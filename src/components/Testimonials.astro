@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import sunCream from '../assets/img/sun-cream.png';
+
+const quotes = [
+	{
+		quote: 'I came for my back and stayed for the feeling. Veta is the calmest hour of my week — and I have never been stronger.',
+		name: 'Camila R.',
+		role: 'Member since opening',
+	},
+	{
+		quote: 'The instructors notice everything. Tiny cues, real corrections, zero judgement. It feels like a private session in a group class.',
+		name: 'Daniel M.',
+		role: 'Reformer Flow regular',
+	},
+	{
+		quote: 'Beautiful space, beautiful people. Walking in feels like exhaling. Pilates finally clicked for me here.',
+		name: 'Sofía L.',
+		role: 'Unlimited member',
+	},
+];
+---
+
+<section data-nav-theme="wine" data-testimonials class="relative overflow-hidden bg-wine py-28 text-cream sm:py-40">
+	<div class="mx-auto max-w-[1600px] px-5 sm:px-10">
+		<div class="grid grid-cols-12 gap-6">
+			<div class="col-span-12 lg:col-span-3">
+				<p data-reveal class="eyebrow mb-10 flex items-center gap-4 text-cream/80"><span class="h-px w-10 bg-current"></span> Kind words</p>
+				<div data-reveal class="w-24 sm:w-32">
+					<div data-spin><Image src={sunCream} alt="" width={260} /></div>
+				</div>
+			</div>
+			<div class="col-span-12 lg:col-span-9">
+				<div class="relative grid">
+					{
+						quotes.map((q, i) => (
+							<figure
+								data-quote
+								class="[grid-area:1/1]"
+								style={i > 0 ? 'opacity:0; visibility:hidden' : undefined}
+								aria-hidden={i > 0 ? 'true' : undefined}
+							>
+								<blockquote class="display text-[clamp(2rem,4.4vw,4.2rem)] leading-[1.1] font-light">
+									<span class="italic">“</span>{q.quote}<span class="italic">”</span>
+								</blockquote>
+								<figcaption class="mt-10 flex items-center gap-4">
+									<span class="flex h-12 w-12 items-center justify-center rounded-full bg-cream font-serif text-xl text-wine italic">
+										{q.name[0]}
+									</span>
+									<span>
+										<span class="block font-semibold">{q.name}</span>
+										<span class="eyebrow text-cream/60">{q.role}</span>
+									</span>
+								</figcaption>
+							</figure>
+						))
+					}
+				</div>
+
+				<div class="mt-14 flex items-center gap-6">
+					<button data-quote-prev aria-label="Previous testimonial" class="flex h-14 w-14 items-center justify-center rounded-full border border-cream/30 transition-colors duration-500 hover:bg-cream hover:text-wine">←</button>
+					<button data-quote-next aria-label="Next testimonial" class="flex h-14 w-14 items-center justify-center rounded-full border border-cream/30 transition-colors duration-500 hover:bg-cream hover:text-wine">→</button>
+					<div class="h-px flex-1 overflow-hidden bg-cream/20">
+						<div data-quote-progress class="h-full w-full origin-left scale-x-0 bg-cream"></div>
+					</div>
+					<span class="eyebrow tabular-nums"><span data-quote-index>01</span> / 0{quotes.length}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

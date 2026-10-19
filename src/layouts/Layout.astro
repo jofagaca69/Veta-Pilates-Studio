@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Veta Pilates Studio — Strength, softly.',
+	description = 'A warm, light-filled reformer and mat Pilates studio. Small classes, expert instructors and a method built around breath, alignment and lasting strength.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#630a0a" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+	</head>
+	<body>
+		<slot />
+		<div class="grain" aria-hidden="true"></div>
+		<script>
+			import '../scripts/main.ts';
+		</script>
+	</body>
+</html>

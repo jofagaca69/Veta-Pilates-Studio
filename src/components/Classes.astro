@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+import reformers from '../assets/img/photo-reformers.jpg';
+import pose from '../assets/img/pose-wine.png';
+import sun from '../assets/img/sun-wine.png';
+
+const classes = [
+	{
+		name: 'Reformer Foundations',
+		meta: ['50 min', 'Beginner'],
+		copy: 'Learn the reformer, the breath and the core principles in a slower-paced, detail-rich class. The perfect place to begin.',
+	},
+	{
+		name: 'Reformer Flow',
+		meta: ['50 min', 'All levels'],
+		copy: 'Our signature class. A fluid, full-body sequence that builds strength, length and control with rhythm and intention.',
+	},
+	{
+		name: 'Sculpt & Burn',
+		meta: ['45 min', 'Intermediate'],
+		copy: 'Higher tempo, heavier springs, deeper burn. Precision meets intensity for a class that challenges and energizes.',
+	},
+	{
+		name: 'Mat Essentials',
+		meta: ['45 min', 'All levels'],
+		copy: 'Classical mat work with small props. Build the foundations of core strength and mobility that carry into every class.',
+	},
+	{
+		name: 'Pre & Postnatal',
+		meta: ['50 min', 'Specialist'],
+		copy: 'Gentle, supportive and expertly adapted for every stage of motherhood — guided by instructors with specialist training.',
+	},
+	{
+		name: 'Private Sessions',
+		meta: ['55 min', '1:1 or duet'],
+		copy: 'Fully personalised programming for rehab, specific goals or simply undivided attention. Reformer, chair and tower.',
+	},
+];
+---
+
+<section id="classes" data-nav-theme="wine" data-classes class="relative overflow-hidden bg-wine text-cream">
+	<div data-classes-pin class="flex min-h-svh flex-col justify-center py-24 lg:py-0">
+		<div class="mx-auto mb-12 flex w-full max-w-[1600px] flex-col justify-between gap-6 px-5 sm:px-10 lg:mb-14 lg:flex-row lg:items-end">
+			<div>
+				<p data-reveal class="eyebrow mb-6 flex items-center gap-4 text-cream/80"><span class="h-px w-10 bg-current"></span> Classes</p>
+				<h2 data-split class="display text-[clamp(3rem,7vw,6.5rem)] font-light">
+					Find your <em class="italic">rhythm.</em>
+				</h2>
+			</div>
+			<div class="flex items-center gap-6">
+				<p data-reveal class="max-w-xs text-[0.95rem] leading-relaxed text-cream/75">
+					Six formats, one standard of care. Max eight per class.
+				</p>
+				<div class="hidden h-px w-40 overflow-hidden bg-cream/20 lg:block">
+					<div data-classes-progress class="h-full w-full origin-left scale-x-0 bg-cream"></div>
+				</div>
+			</div>
+		</div>
+
+		<div data-classes-track class="flex flex-col gap-5 px-5 sm:px-10 lg:w-max lg:flex-row lg:gap-6">
+			<article data-reveal class="relative hidden h-[min(34rem,62vh)] w-[38rem] shrink-0 overflow-hidden rounded-[2rem] lg:block">
+				<Image src={reformers} alt="A Veta-branded wooden reformer in a sunlit studio" widths={[800, 1200]} sizes="38rem" class="h-full w-full object-cover" />
+				<div class="absolute inset-0 bg-gradient-to-t from-wine/70 via-transparent to-transparent"></div>
+				<p class="display absolute bottom-8 left-8 max-w-xs text-4xl italic">Every class, on beautiful equipment.</p>
+			</article>
+			{
+				classes.map((c, i) => (
+					<article
+						data-reveal
+						data-class-card
+						class="group relative flex min-h-[26rem] shrink-0 flex-col justify-between overflow-hidden rounded-[2rem] bg-cream p-8 text-wine sm:p-10 lg:h-[min(34rem,62vh)] lg:min-h-[28rem] lg:w-[25rem]"
+					>
+						<div class="flex items-start justify-between">
+							<span class="eyebrow">{String(i + 1).padStart(2, '0')} / {String(classes.length).padStart(2, '0')}</span>
+							<Image src={sun} alt="" width={100} class="w-8 transition-transform duration-[1.2s] ease-(--ease-soft) group-hover:rotate-[200deg]" />
+						</div>
+						<Image
+							src={pose}
+							alt=""
+							width={500}
+							class="pointer-events-none absolute -right-16 top-1/2 w-64 -translate-y-1/2 opacity-[0.06] transition-all duration-1000 ease-(--ease-soft) group-hover:-right-8 group-hover:opacity-[0.12]"
+						/>
+						<div class="relative">
+							<div class="mb-6 flex gap-2">
+								{c.meta.map((m) => (
+									<span class="rounded-full border border-wine/25 px-3 py-1.5 text-[0.65rem] font-semibold tracking-[0.18em] uppercase">{m}</span>
+								))}
+							</div>
+							<h3 class="display mb-4 text-[2.6rem] leading-none">{c.name}</h3>
+							<p class="mb-8 text-[0.92rem] leading-relaxed text-wine/75">{c.copy}</p>
+							<a href="#pricing" class="eyebrow link-underline inline-flex items-center gap-3">
+								Book this class <span aria-hidden="true">→</span>
+							</a>
+						</div>
+					</article>
+				))
+			}
+			<div class="hidden w-[10vw] shrink-0 lg:block" aria-hidden="true"></div>
+		</div>
+	</div>
+</section>

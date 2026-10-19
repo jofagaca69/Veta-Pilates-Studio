@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import pose from '../assets/img/pose-cream.png';
+import logoV from '../assets/img/logo-v-cream.png';
+
+const year = new Date().getFullYear();
+---
+
+<footer id="contact" data-nav-theme="wine" class="relative overflow-hidden bg-wine text-cream">
+	<!-- CTA -->
+	<div data-cta class="relative mx-auto max-w-[1600px] px-5 pt-28 pb-24 sm:px-10 sm:pt-40 lg:pb-40">
+		<div data-cta-pose class="pointer-events-none absolute right-[-20%] bottom-0 w-[90vw] max-w-[820px] opacity-20 lg:right-[-3%] lg:w-[42vw] lg:opacity-100">
+			<Image src={pose} alt="" width={1200} />
+		</div>
+		<div class="relative">
+			<p data-reveal class="eyebrow mb-8 flex items-center gap-4 text-cream/80"><span class="h-px w-10 bg-current"></span> Your first class awaits</p>
+			<h2 data-split class="display text-[clamp(4rem,10vw,10rem)] font-light">
+				Find your<br /><em class="italic">center.</em>
+			</h2>
+			<div data-reveal class="mt-12 flex flex-wrap gap-3">
+				<a href="#pricing" data-magnetic class="btn btn-cream"><span>Book a class</span></a>
+				<a href="mailto:hello@vetapilates.com" data-magnetic class="btn btn-ghost-cream"><span>Say hello</span></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Info -->
+	<div class="relative mx-auto max-w-[1600px] px-5 sm:px-10">
+		<div class="grid gap-12 border-t border-cream/20 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
+			<div data-reveal class="lg:col-span-3">
+				<Image src={logoV} alt="Veta Pilates Studio" width={300} class="w-28" />
+			</div>
+			<div data-reveal class="lg:col-span-2">
+				<p class="eyebrow mb-5 text-cream/60">Visit</p>
+				<address class="text-[0.95rem] leading-relaxed not-italic">
+					214 Alder Street<br />Suite 2, Ground Floor<br />Your City, 00000
+				</address>
+			</div>
+			<div data-reveal class="lg:col-span-2">
+				<p class="eyebrow mb-5 text-cream/60">Hours</p>
+				<p class="text-[0.95rem] leading-relaxed">
+					Mon–Fri 6am – 9pm<br />Sat–Sun 7am – 2pm
+				</p>
+			</div>
+			<div data-reveal class="lg:col-span-2">
+				<p class="eyebrow mb-5 text-cream/60">Contact</p>
+				<p class="flex flex-col items-start gap-1 text-[0.95rem] leading-relaxed">
+					<a href="mailto:hello@vetapilates.com" class="link-underline">hello@vetapilates.com</a>
+					<a href="tel:+15550142290" class="link-underline">+1 (555) 014-2290</a>
+					<a href="#" class="link-underline">@vetapilates</a>
+				</p>
+			</div>
+			<form data-reveal class="sm:col-span-2 lg:col-span-3" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you ✓'">
+				<p class="eyebrow mb-5 text-cream/60">Letters from the studio</p>
+				<label class="flex items-center gap-3 border-b border-cream/40 pb-3 focus-within:border-cream">
+					<span class="sr-only">Email address</span>
+					<input type="email" required placeholder="Your email" class="w-full bg-transparent text-[0.95rem] placeholder:text-cream/50 focus:outline-none" />
+					<button type="submit" class="eyebrow shrink-0">Join →</button>
+				</label>
+				<p class="mt-3 text-xs text-cream/50">Schedules, workshops and the occasional slow Sunday.</p>
+			</form>
+		</div>
+
+		<div class="flex flex-col items-start justify-between gap-4 border-t border-cream/20 py-8 text-xs text-cream/60 sm:flex-row sm:items-center">
+			<p>© {year} Veta Pilates Studio. All rights reserved.</p>
+			<p class="flex gap-6">
+				<a href="#" class="link-underline">Privacy</a>
+				<a href="#" class="link-underline">Terms</a>
+				<a href="#top" class="link-underline">Back to top ↑</a>
+			</p>
+		</div>
+	</div>
+</footer>

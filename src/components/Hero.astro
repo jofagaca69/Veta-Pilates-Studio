@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import reception from '../assets/img/photo-reception.jpg';
+import sun from '../assets/img/sun-cream.png';
+---
+
+<section
+	id="top"
+	data-nav-theme="wine"
+	class="relative isolate flex min-h-svh flex-col overflow-hidden bg-wine text-cream"
+>
+	<!-- soft radial glow -->
+	<div class="pointer-events-none absolute -top-1/3 -right-1/4 -z-10 h-[120vh] w-[120vh] rounded-full bg-wine-soft/60 blur-3xl"></div>
+
+	<div class="mx-auto grid w-full max-w-[1600px] flex-1 grid-cols-12 items-end gap-x-6 gap-y-14 px-5 pt-32 pb-10 sm:px-10 lg:pt-36">
+		<div class="col-span-12 lg:col-span-7 lg:pb-8">
+			<p data-hero-in class="eyebrow mb-8 flex items-center gap-4 text-cream/80">
+				<span class="h-px w-10 bg-current"></span> Reformer &amp; Mat Pilates Studio
+			</p>
+			<h1 data-hero-title class="display text-[clamp(4.2rem,11vw,11rem)] font-light">
+				Strength,<br /><em class="font-normal italic">softly.</em>
+			</h1>
+			<div class="mt-10 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between lg:max-w-2xl">
+				<p data-hero-in class="max-w-sm text-[0.95rem] leading-relaxed text-cream/80">
+					A light-filled studio for mindful, precise movement. Small classes, expert hands and a method that
+					meets you exactly where you are.
+				</p>
+				<div data-hero-in class="flex shrink-0 flex-wrap gap-3">
+					<a href="#pricing" data-magnetic class="btn btn-cream"><span>Book your first class</span></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="relative col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-5 lg:col-start-8">
+			<div class="relative mx-auto aspect-[4/5] w-full max-w-[520px] overflow-hidden rounded-t-[999px] rounded-b-[2rem]">
+				<div data-hero-image class="absolute inset-0">
+					<Image
+						src={reception}
+						alt="Veta reception with backlit wordmark and reformers in the background"
+						widths={[600, 900, 1200]}
+						sizes="(min-width: 1024px) 40vw, 90vw"
+						loading="eager"
+						fetchpriority="high"
+						data-hero-image-inner
+						class="h-full w-full object-cover object-[50%_35%]"
+					/>
+				</div>
+			</div>
+			<div
+				data-hero-sun
+				class="absolute -bottom-8 -left-4 w-28 sm:-left-10 sm:w-36 lg:-left-16 lg:w-44"
+			>
+				<div data-spin>
+					<Image src={sun} alt="" width={360} loading="eager" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="mx-auto w-full max-w-[1600px] px-5 pb-6 sm:px-10">
+		<div data-hero-in class="flex items-center justify-between gap-6 border-t border-cream/20 pt-5 text-cream/70">
+			<span class="eyebrow hidden sm:block">Reformer · Mat · Private</span>
+			<span class="eyebrow">Open daily — 6am to 9pm</span>
+			<a href="#manifesto" class="eyebrow flex items-center gap-3">
+				Scroll
+				<span class="relative block h-8 w-px overflow-hidden bg-cream/25">
+					<span class="absolute inset-x-0 top-0 h-1/2 animate-[scrollcue_2s_ease-in-out_infinite] bg-cream"></span>
+				</span>
+			</a>
+		</div>
+	</div>
+</section>

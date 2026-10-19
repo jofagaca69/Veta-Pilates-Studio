@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import pose from '../assets/img/pose-wine.png';
+---
+
+<section id="manifesto" data-nav-theme="cream" class="relative overflow-hidden bg-cream py-28 sm:py-40">
+	<div class="mx-auto grid max-w-[1600px] grid-cols-12 gap-6 px-5 sm:px-10">
+		<div class="col-span-12 lg:col-span-3">
+			<p data-reveal class="eyebrow flex items-center gap-4">
+				<span class="h-px w-10 bg-current"></span> Our philosophy
+			</p>
+		</div>
+		<div class="col-span-12 lg:col-span-9">
+			<p data-manifesto class="display text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.08] font-light">
+				We believe movement should feel like coming home. At Veta, every class is a quiet conversation between
+				<em class="italic">breath and body</em> — precise, unhurried and deeply strengthening. No noise. No
+				ego. Just you, the reformer, and <em class="italic">the slow joy</em> of getting stronger.
+			</p>
+			<div class="mt-16 grid gap-10 sm:grid-cols-2 lg:mt-24 lg:max-w-3xl">
+				<p data-reveal class="text-[0.95rem] leading-relaxed text-wine/75">
+					Founded on classical Pilates principles and shaped by modern movement science, our method builds
+					deep core strength, mobility and posture that carries into everyday life.
+				</p>
+				<p data-reveal class="text-[0.95rem] leading-relaxed text-wine/75">
+					With a maximum of eight people per class, our instructors see every body in the room — offering
+					hands-on cues, thoughtful modifications and a warm welcome every single time.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div data-manifesto-pose class="pointer-events-none absolute -bottom-10 -left-24 w-[60vw] max-w-[560px] opacity-[0.07] lg:-left-10 lg:w-[38vw]">
+		<Image src={pose} alt="" width={900} />
+	</div>
+</section>

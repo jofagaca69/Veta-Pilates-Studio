@@ -1,0 +1,159 @@
+@import '@fontsource-variable/fraunces/full.css';
+@import '@fontsource-variable/fraunces/full-italic.css';
+@import '@fontsource-variable/montserrat';
+@import 'tailwindcss';
+
+@theme {
+  --color-wine: #630a0a;
+  --color-wine-deep: #4a0707;
+  --color-wine-soft: #7d1b1b;
+  --color-cream: #e4d6c5;
+  --color-cream-light: #efe5d8;
+  --color-sand: #cdb9a0;
+  --color-ink: #2a0606;
+
+  --font-serif: 'Fraunces Variable', 'Times New Roman', serif;
+  --font-sans: 'Montserrat Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    @apply bg-cream text-wine antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    @apply bg-cream font-sans text-wine;
+    overflow-x: clip;
+  }
+  ::selection {
+    @apply bg-wine text-cream;
+  }
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-semibold tracking-[0.32em] uppercase;
+  }
+  .display {
+    @apply font-serif leading-[0.9] tracking-[-0.03em];
+    font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 0;
+  }
+  .btn {
+    @apply relative inline-flex items-center gap-3 overflow-hidden rounded-full px-7 py-4 text-[0.72rem] font-semibold tracking-[0.24em] uppercase transition-colors duration-500;
+  }
+  .btn > span {
+    @apply relative z-10;
+  }
+  .btn::before {
+    content: '';
+    @apply absolute inset-0 origin-bottom scale-y-0 rounded-full transition-transform duration-500;
+    transition-timing-function: var(--ease-soft);
+  }
+  .btn:hover::before {
+    @apply scale-y-100;
+  }
+  .btn-wine {
+    @apply bg-wine text-cream hover:text-wine;
+  }
+  .btn-wine::before {
+    @apply bg-cream-light;
+  }
+  .btn-cream {
+    @apply bg-cream text-wine hover:text-cream;
+  }
+  .btn-cream::before {
+    @apply bg-wine-deep;
+  }
+  .btn-ghost-cream {
+    @apply border border-cream/40 text-cream hover:text-wine;
+  }
+  .btn-ghost-cream::before {
+    @apply bg-cream;
+  }
+  .btn-ghost-wine {
+    @apply border border-wine/30 text-wine hover:text-cream;
+  }
+  .btn-ghost-wine::before {
+    @apply bg-wine;
+  }
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500;
+    transition-timing-function: var(--ease-soft);
+  }
+  .link-underline:hover::after {
+    @apply origin-left scale-x-100;
+  }
+}
+
+/* Film grain overlay */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 90;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 8s steps(10) infinite;
+}
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  30% { transform: translate(3%, -15%); }
+  50% { transform: translate(12%, 9%); }
+  70% { transform: translate(9%, 4%); }
+  90% { transform: translate(-1%, 7%); }
+}
+
+@keyframes scrollcue {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+/* Split text helpers */
+.split-line {
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+/* Hide animated elements until JS takes over (avoids flash) */
+.js [data-reveal],
+.js [data-split],
+.js [data-hero-in],
+.js [data-hero-title],
+.js [data-hero-sun] {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-hero-image] { clip-path: inset(100% 0 0 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain { animation: none; }
+  .js [data-reveal],
+  .js [data-split],
+  .js [data-hero-in],
+  .js [data-hero-title],
+  .js [data-hero-sun] { visibility: visible; }
+}

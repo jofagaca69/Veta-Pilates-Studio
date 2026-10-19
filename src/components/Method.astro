@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import sun from '../assets/img/sun-wine.png';
+import sunCream from '../assets/img/sun-cream.png';
+
+const pillars = [
+	{
+		title: 'Breathe',
+		copy: 'Every movement starts with the breath. We use it to find focus, steady the nervous system and power each exercise from within.',
+	},
+	{
+		title: 'Align',
+		copy: 'Precise cueing and attention to form, so every rep builds balanced strength and protects the joints you live in.',
+	},
+	{
+		title: 'Strengthen',
+		copy: 'Spring-loaded resistance creates long, functional strength — a powerful core, a supported spine, steady hips.',
+	},
+	{
+		title: 'Flow',
+		copy: 'Thoughtful sequencing that moves with rhythm and grace. You leave feeling taller, lighter and more at ease.',
+	},
+];
+---
+
+<section id="method" data-nav-theme="cream" class="relative bg-cream-light py-28 sm:py-40">
+	<div class="mx-auto max-w-[1600px] px-5 sm:px-10">
+		<div class="mb-16 flex flex-col justify-between gap-8 lg:mb-24 lg:flex-row lg:items-end">
+			<div>
+				<p data-reveal class="eyebrow mb-6 flex items-center gap-4"><span class="h-px w-10 bg-current"></span> The Veta method</p>
+				<h2 data-split class="display max-w-3xl text-[clamp(3rem,7vw,6.5rem)] font-light">
+					Four principles, <em class="italic">one practice.</em>
+				</h2>
+			</div>
+			<p data-reveal class="max-w-sm text-[0.95rem] leading-relaxed text-wine/75">
+				Whether it's your first class or your five-hundredth, each session is grounded in the same four ideas.
+			</p>
+		</div>
+
+		<div class="grid gap-px overflow-hidden rounded-[2rem] bg-wine/15 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				pillars.map((p, i) => (
+					<article
+						data-reveal
+						class="group relative flex min-h-[26rem] flex-col justify-between bg-cream-light p-8 transition-colors duration-700 hover:bg-wine hover:text-cream sm:p-10"
+					>
+						<div class="flex items-start justify-between">
+							<span class="display text-6xl font-light italic">0{i + 1}</span>
+							<div class="relative w-10 transition-transform duration-[1.2s] ease-(--ease-soft) group-hover:rotate-180">
+								<Image src={sun} alt="" width={120} class="w-full transition-opacity duration-700 group-hover:opacity-0" />
+								<Image src={sunCream} alt="" width={120} class="absolute inset-0 w-full opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+							</div>
+						</div>
+						<div>
+							<h3 class="display mb-5 text-4xl sm:text-5xl">{p.title}</h3>
+							<p class="text-[0.92rem] leading-relaxed opacity-75">{p.copy}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

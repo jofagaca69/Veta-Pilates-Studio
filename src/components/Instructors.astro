@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import sunWine from '../assets/img/sun-wine.png';
+import sunCream from '../assets/img/sun-cream.png';
+
+const team = [
+	{ name: 'Valentina Ortiz', role: 'Founder & Lead Instructor', bio: 'STOTT-certified, 12 years teaching. Believes the reformer is the kindest teacher.', tone: 'wine' },
+	{ name: 'Elena Park', role: 'Senior Instructor', bio: 'Former dancer specialising in mobility, posture and pre & postnatal programming.', tone: 'sand' },
+	{ name: 'Marco Ruiz', role: 'Instructor & Rehab Lead', bio: 'Physiotherapist by training. Brings clinical precision to every private session.', tone: 'cream' },
+];
+---
+
+<section data-nav-theme="cream" class="bg-cream py-28 sm:py-40">
+	<div class="mx-auto max-w-[1600px] px-5 sm:px-10">
+		<div class="mb-16 flex flex-col justify-between gap-8 lg:mb-24 lg:flex-row lg:items-end">
+			<div>
+				<p data-reveal class="eyebrow mb-6 flex items-center gap-4"><span class="h-px w-10 bg-current"></span> The team</p>
+				<h2 data-split class="display max-w-3xl text-[clamp(3rem,7vw,6.5rem)] font-light">
+					Hands you can <em class="italic">trust.</em>
+				</h2>
+			</div>
+			<p data-reveal class="max-w-sm text-[0.95rem] leading-relaxed text-wine/75">
+				Every Veta instructor completes 450+ hours of comprehensive training — and keeps learning, every season.
+			</p>
+		</div>
+
+		<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+			{
+				team.map((t, i) => (
+					<article data-reveal class:list={['group', i === 1 && 'lg:mt-24']}>
+						<div
+							class:list={[
+								'relative mb-8 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-t-[999px] rounded-b-[1.5rem]',
+								t.tone === 'wine' && 'bg-wine text-cream',
+								t.tone === 'sand' && 'bg-sand text-wine',
+								t.tone === 'cream' && 'border border-wine/15 bg-cream-light text-wine',
+							]}
+						>
+							<span class="display text-[11rem] leading-none font-light italic transition-transform duration-1000 ease-(--ease-soft) group-hover:scale-110 group-hover:-rotate-3">
+								{t.name.split(' ').map((n) => n[0]).join('')}
+							</span>
+							<Image
+								src={t.tone === 'wine' ? sunCream : sunWine}
+								alt=""
+								width={200}
+								class="absolute bottom-8 left-1/2 w-14 -translate-x-1/2 transition-transform duration-[1.2s] ease-(--ease-soft) group-hover:-translate-y-3 group-hover:rotate-180"
+							/>
+						</div>
+						<p class="eyebrow mb-3 text-wine/60">{t.role}</p>
+						<h3 class="display mb-3 text-4xl">{t.name}</h3>
+						<p class="max-w-sm text-[0.92rem] leading-relaxed text-wine/75">{t.bio}</p>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

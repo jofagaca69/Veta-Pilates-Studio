@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import sunCream from '../assets/img/sun-cream.png';
+
+const plans = [
+	{
+		name: 'Intro Offer',
+		price: '59',
+		unit: '3 classes',
+		note: 'New clients only · valid 30 days',
+		features: ['Any group class', 'Studio tour & setup', 'Free grip socks', 'Book 14 days ahead'],
+		cta: 'Start here',
+		featured: false,
+	},
+	{
+		name: 'Unlimited',
+		price: '289',
+		unit: 'per month',
+		note: 'Auto-renews · pause anytime',
+		features: ['Unlimited group classes', 'Priority booking, 21 days', '2 guest passes a month', '10% off privates & retail'],
+		cta: 'Become a member',
+		featured: true,
+	},
+	{
+		name: '8 Class Pack',
+		price: '240',
+		unit: '8 classes',
+		note: 'Valid 3 months',
+		features: ['Any group class', 'Share with a friend', 'Book 14 days ahead', 'Towels & lockers included'],
+		cta: 'Buy pack',
+		featured: false,
+	},
+];
+---
+
+<section id="pricing" data-nav-theme="cream" class="relative bg-cream-light py-28 sm:py-40">
+	<div class="mx-auto max-w-[1600px] px-5 sm:px-10">
+		<div class="mb-16 text-center lg:mb-24">
+			<p data-reveal class="eyebrow mb-6 inline-flex items-center gap-4"><span class="h-px w-10 bg-current"></span> Pricing <span class="h-px w-10 bg-current"></span></p>
+			<h2 data-split class="display mx-auto max-w-4xl text-[clamp(3rem,7vw,6.5rem)] font-light">
+				Begin <em class="italic">gently.</em>
+			</h2>
+		</div>
+
+		<div class="grid items-stretch gap-5 lg:grid-cols-3 lg:gap-6">
+			{
+				plans.map((p) => (
+					<article
+						data-reveal
+						class:list={[
+							'relative flex flex-col overflow-hidden rounded-[2rem] p-8 sm:p-10 lg:p-12',
+							p.featured ? 'bg-wine text-cream lg:-my-6 lg:py-16' : 'border border-wine/15 bg-cream text-wine',
+						]}
+					>
+						{p.featured && (
+							<>
+								<Image src={sunCream} alt="" width={300} class="pointer-events-none absolute -top-16 -right-16 w-52 opacity-10" data-spin />
+								<span class="eyebrow absolute top-8 right-8 rounded-full bg-cream px-4 py-2 text-[0.6rem] text-wine sm:top-10 sm:right-10">Most loved</span>
+							</>
+						)}
+						<p class="eyebrow mb-10">{p.name}</p>
+						<p class="display mb-2 flex items-start text-8xl font-light">
+							<span class="mt-3 mr-1 text-3xl">$</span>
+							{p.price}
+						</p>
+						<p class="mb-1 text-sm font-medium">{p.unit}</p>
+						<p class="mb-10 text-xs opacity-60">{p.note}</p>
+						<ul class:list={['mb-12 space-y-4 border-t pt-8 text-[0.92rem]', p.featured ? 'border-cream/20' : 'border-wine/15']}>
+							{p.features.map((f) => (
+								<li class="flex items-center gap-3">
+									<span class:list={['h-1.5 w-1.5 shrink-0 rounded-full', p.featured ? 'bg-cream' : 'bg-wine']} />
+									{f}
+								</li>
+							))}
+						</ul>
+						<a href="#contact" data-magnetic class:list={['btn mt-auto justify-center', p.featured ? 'btn-cream' : 'btn-ghost-wine']}>
+							<span>{p.cta}</span>
+						</a>
+					</article>
+				))
+			}
+		</div>
+		<p data-reveal class="mt-14 text-center text-sm text-wine/60">Private sessions from $110 · Corporate &amp; gift cards available</p>
+	</div>
+</section>

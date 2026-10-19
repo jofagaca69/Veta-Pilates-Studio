@@ -1,0 +1,32 @@
+---
+const stats = [
+	{ value: 12, suffix: '', label: 'Hand-finished reformers' },
+	{ value: 8, suffix: '', label: 'Max. people per class' },
+	{ value: 60, suffix: '+', label: 'Classes every week' },
+	{ value: 98, suffix: '%', label: 'Members who return' },
+];
+---
+
+<section data-nav-theme="cream" class="bg-cream pb-28 sm:pb-40">
+	<div class="mx-auto grid max-w-[1600px] grid-cols-2 border-t border-wine/15 px-5 sm:px-10 lg:grid-cols-4">
+		{
+			stats.map((s, i) => (
+				<div
+					data-reveal
+					class:list={[
+						'border-wine/15 pt-10 pb-4 lg:pt-14',
+						i % 2 === 1 && 'border-l pl-6 sm:pl-10',
+						i === 2 && 'lg:border-l lg:pl-10',
+						i >= 2 && 'max-lg:border-t',
+					]}
+				>
+					<p class="display mb-3 text-[clamp(3.5rem,8vw,7.5rem)] font-light">
+						<span data-counter={s.value}>{s.value}</span>
+						<em class="italic">{s.suffix}</em>
+					</p>
+					<p class="eyebrow text-wine/70">{s.label}</p>
+				</div>
+			))
+		}
+	</div>
+</section>

@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import sun from '../assets/img/sun-wine.png';
+
+const words = ['Reformer', 'Mat', 'Breath', 'Alignment', 'Control', 'Flow', 'Balance'];
+---
+
+<section data-nav-theme="cream" class="relative overflow-hidden border-b border-wine/15 bg-cream py-8 sm:py-10" aria-label="What we practice">
+	<div data-marquee class="flex w-max will-change-transform">
+		{
+			[0, 1].map((copy) => (
+				<div class="flex shrink-0 items-center" aria-hidden={copy === 1 ? 'true' : undefined}>
+					{words.map((w) => (
+						<>
+							<span class="display px-6 text-[clamp(2.5rem,7vw,6rem)] italic sm:px-10">{w}</span>
+							<Image src={sun} alt="" width={120} class="w-10 shrink-0 sm:w-14" data-marquee-sun />
+						</>
+					))}
+				</div>
+			))
+		}
+	</div>
+</section>

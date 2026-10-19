@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import sun from '../assets/img/sun-wine.png';
+---
+
+<div
+	data-preloader
+	class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-cream text-wine"
+	aria-hidden="true"
+>
+	<div class="relative flex flex-col items-center gap-8">
+		<div data-preloader-sun class="w-28 sm:w-36">
+			<Image src={sun} alt="" width={300} loading="eager" />
+		</div>
+		<div class="overflow-hidden">
+			<p data-preloader-word class="display text-5xl italic sm:text-6xl">breathe in</p>
+		</div>
+	</div>
+	<div class="absolute right-6 bottom-6 left-6 flex items-end justify-between sm:right-10 sm:bottom-10 sm:left-10">
+		<span class="eyebrow">Veta — Pilates Studio</span>
+		<span data-preloader-count class="display text-6xl tabular-nums sm:text-8xl">000</span>
+	</div>
+</div>
